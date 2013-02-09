@@ -7,6 +7,7 @@
 ```
 task = Task.new finish_time: Time.parse('2012-06-25 10:00'), description: 'foo'
 ```
+
 ## Queue#get_task(finish_time)
 * возвращает объект класса Task.
 * finish_time - время, к которому задание должно быть выполнено, объект класса Time
