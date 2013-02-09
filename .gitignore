@@ -1,0 +1,11 @@
+pkg/
+log/*
+tmp/*
+*~
+*.swp
+*.swo
+.rspec
+.idea
+.rvmrc
+.bundle
+.bundle/*
