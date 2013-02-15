@@ -1,4 +1,4 @@
-pkg/
+  pkg/
 log/*
 tmp/*
 *~
@@ -7,5 +7,6 @@ tmp/*
 .rspec
 .idea
 .rvmrc
+.rspec
 .bundle
 .bundle/*
