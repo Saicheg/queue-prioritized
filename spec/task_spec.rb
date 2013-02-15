@@ -39,4 +39,18 @@ describe Task do
       end
     end
   end
+
+  describe 'serialization/deserialization' do
+    subject { Task.new(finish_time: Time.now, description: 'foo') }
+
+    it 'should be serialized to json' do
+      subject.to_json.should == {finish_time: subject.finish_time, description: subject.description}.to_json
+    end
+
+    it 'should be successfully deserialized from json' do
+      json = subject.to_json
+      Task.parse(json).class.should == Task
+    end
+  end
+
 end
