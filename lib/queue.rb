@@ -20,9 +20,7 @@ class Queue
   end
 
   def get_task(finish_time)
-    task = expired
-    task ||= find_by_key(finish_time.to_i).last
-    return_task(task)
+    return_task expired || find_by_key(finish_time.to_i).last
   end
 
   protected
