@@ -41,7 +41,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 3.2.12)
   factory_girl (~> 4.0)
   pry (~> 0.9.10)
   pry-debugger (~> 0.2.1)
