@@ -1,5 +1,9 @@
+require 'rubygems'
+require 'active_support/core_ext/numeric'
+require 'factory_girl'
 require 'pry'
-Dir[File.expand_path('../../lib/*.rb', __FILE__)].each {|f| require f}
+
+Dir[File.expand_path('../../lib/*.rb', __FILE__), File.expand_path('../factories/*.rb', __FILE__)].each {|f| require f}
 
 RSpec.configure do |config|
   # ## Mock Framework
