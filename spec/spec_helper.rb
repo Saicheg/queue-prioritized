@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'active_support/core_ext/numeric'
 require 'factory_girl'
 require 'pry'
 

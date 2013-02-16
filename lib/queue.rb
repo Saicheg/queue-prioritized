@@ -5,8 +5,7 @@ require 'pry'
 
 class Queue
 
-  def initialize(tasks=[])
-    tasks.each { |task| add_to_queue(task) }
+  def initialize
     @redis = Redis.new
     @mutex = Mutex.new
   end
@@ -23,7 +22,10 @@ class Queue
   end
 
   def get_task(finish_time)
-    @mutex.synchronize { return_task expired || find_by_key(finish_time.to_i).last }
+    @mutex.synchronize do
+      return nil if empty_queue?
+      return_task expired || find_by_key(finish_time.to_i).last
+    end
   end
 
   protected
