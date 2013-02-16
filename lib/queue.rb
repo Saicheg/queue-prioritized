@@ -16,11 +16,11 @@ class Queue
 
   def pop
     return nil if empty_queue?
-    @redis.multi { return_task(closest) }
+    return_task(closest)
   end
 
   def get_task(finish_time)
-    @redis.multi { return_task expired || find_by_key(finish_time.to_i).last }
+    return_task expired || find_by_key(finish_time.to_i).last
   end
 
   protected
