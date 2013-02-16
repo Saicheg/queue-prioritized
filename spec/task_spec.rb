@@ -9,11 +9,11 @@ describe Task do
     end
 
     it 'should filter invalid param sex on initialize' do
-      expect { Task.new(sex: 'bar') }.to raise_error(ArgumentError)
+      expect { Task.new(:sex => 'bar') }.to raise_error(ArgumentError)
     end
 
     it 'should be fine if only 1 argument is passed' do
-      expect { Task.new(description: 'foo') }.to_not raise_error(ArgumentError)
+      expect { Task.new(:description => 'foo') }.to_not raise_error(ArgumentError)
     end
 
     it 'should be fine if no arguments is passed' do
@@ -48,7 +48,7 @@ describe Task do
     subject { FactoryGirl.build(:task) }
 
     it 'should be serialized to json' do
-      subject.to_json.should == {finish_time: subject.finish_time, description: subject.description}.to_json
+      subject.to_json.should == {:finish_time => subject.finish_time, :description => subject.description}.to_json
     end
 
     it 'should be successfully deserialized from json' do

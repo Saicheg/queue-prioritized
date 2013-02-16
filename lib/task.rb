@@ -10,8 +10,8 @@ class Task
   def self.parse(data)
     return nil unless data
     attrs = JSON.parse(data)
-    self.new finish_time: Time.parse(attrs['finish_time']),
-             description: attrs['description']
+    self.new :finish_time => Time.parse(attrs['finish_time']),
+             :description => attrs['description']
   end
 
   def initialize(params={})
