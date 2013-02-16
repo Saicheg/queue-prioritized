@@ -8,19 +8,22 @@ class Queue
   def initialize(tasks=[])
     tasks.each { |task| add_to_queue(task) }
     @redis = Redis.new
+    @mutex = Mutex.new
   end
 
   def push(task)
-    add_to_queue(task)
+    @mutex.synchronize { add_to_queue(task) }
   end
 
   def pop
-    return nil if empty_queue?
-    return_task(closest)
+    @mutex.synchronize do
+      return nil if empty_queue?
+      return_task(closest)
+    end
   end
 
   def get_task(finish_time)
-    return_task expired || find_by_key(finish_time.to_i).last
+    @mutex.synchronize { return_task expired || find_by_key(finish_time.to_i).last }
   end
 
   protected
