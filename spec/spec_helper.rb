@@ -1,5 +1,4 @@
 require 'factory_girl'
-require 'pry'
 
 Dir[File.expand_path('../../lib/*.rb', __FILE__), File.expand_path('../factories/*.rb', __FILE__)].each {|f| require f}
 
